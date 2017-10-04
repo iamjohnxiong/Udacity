@@ -7,8 +7,6 @@ function loadData() {
     var $nytElem = $('#nytimes-articles');
     var $greeting = $('#greeting');
 
-
-
     // clear out old data before new request
     $wikiElem.text("");
     $nytElem.text("");
@@ -18,10 +16,35 @@ function loadData() {
     var city = $('#city').val();
     var address = street + ', ' + city;
 
+    // Google API Images
     var streetViewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + address + '';
+        $body.append('<img class="bgimg" src="' + streetViewUrl + '">');
 
-    $body.append('<img class="bgimg" src="' + streetViewUrl + '">');
-    // YOUR CODE GOES HERE!
+
+    // NY Times Articles
+    var nytimes_url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + city + '&sort=newest&api-key=XXX';
+    $.getJSON( nytimes_url, function( data ) {
+        $nytHeaderElem.text('New York Times Articles About' + city);
+        articles = data.response.docs;
+        for (var i = 0; i < articles.length; i++) {
+            var article = articles[i];
+            $nytElem.append('<li class="article">' + '<a href="' + article.web_url + '">' + article.headline.main + '</a>' + '<p>' + article.snippet + '</p>' + '</li>');
+        };
+    })
+    .error(function(e) {
+        $nytHeaderElem.text('New York Times Articles Could Not Be Found');
+    });
+
+
+    // Wikipedia Articles
+    var wiki_url = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + city + '&format=json&callback=wikiCallback';
+    $.ajax( {
+        url: wiki_url,
+        dataType: 'jsonp',
+        success: function(response) {
+
+        }
+    });
 
     return false;
 };
