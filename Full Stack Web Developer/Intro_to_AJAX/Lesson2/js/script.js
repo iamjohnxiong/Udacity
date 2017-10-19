@@ -22,7 +22,7 @@ function loadData() {
 
 
     // NY Times Articles
-    var nytimes_url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + city + '&sort=newest&api-key=XXX';
+    var nytimes_url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + city + '&sort=newest&api-key=b56f71c629474140a303784bf30f2f8';
     $.getJSON( nytimes_url, function( data ) {
         $nytHeaderElem.text('New York Times Articles About' + city);
         articles = data.response.docs;
