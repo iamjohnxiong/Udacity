@@ -31,6 +31,4 @@ class ResultViewController: UIViewController {
         self.resultImageView.image = resultImage
         self.resultLabel.text = result
     }
-    
-    
 }

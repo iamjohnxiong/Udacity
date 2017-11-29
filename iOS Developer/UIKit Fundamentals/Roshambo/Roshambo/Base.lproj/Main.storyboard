@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,27 +22,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdG-f1-IXa">
-                                <rect key="frame" x="35" y="163" width="77" height="65"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7R-H1-kn3" userLabel="PaperButton">
+                                <rect key="frame" x="150" y="96" width="75" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="paper"/>
+                                <connections>
+                                    <action selector="pressedPaper" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oq4-yG-AJR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lo-MM-LH3" userLabel="ScissorButton">
+                                <rect key="frame" x="284" y="96" width="75" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="scissors"/>
+                                <connections>
+                                    <segue destination="WpV-oo-T6n" kind="presentation" identifier="ScissorSegue" id="qK6-gh-oSI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdG-f1-IXa" userLabel="RockButton">
+                                <rect key="frame" x="16" y="96" width="75" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="rock"/>
                                 <connections>
                                     <action selector="pressedRock" destination="BYZ-38-t0r" eventType="touchUpInside" id="68f-Jk-leu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7R-H1-kn3">
-                                <rect key="frame" x="144" y="163" width="77" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="paper"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lo-MM-LH3">
-                                <rect key="frame" x="263" y="163" width="77" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="scissors"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="WpV-oo-T6n" kind="presentation" identifier="PaperSegue" id="d70-U4-k5C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,21 +69,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9a-Qb-r9A">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C9a-Qb-r9A">
                                 <rect key="frame" x="67" y="123" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Result Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjm-3V-CRa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjm-3V-CRa">
                                 <rect key="frame" x="16" y="307" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wk0-J1-a6a">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wk0-J1-a6a">
                                 <rect key="frame" x="152" y="392" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play Again"/>
                                 <connections>
                                     <action selector="playAgainButtonPressed:" destination="WpV-oo-T6n" eventType="touchUpInside" id="bIe-YC-6rU"/>
@@ -81,6 +88,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jjm-3V-CRa" firstAttribute="leading" secondItem="wAe-SW-hKg" secondAttribute="leadingMargin" id="Fsd-hY-jRg"/>
+                            <constraint firstItem="C9a-Qb-r9A" firstAttribute="leading" secondItem="wAe-SW-hKg" secondAttribute="leadingMargin" constant="51" id="QBf-kx-Ckq"/>
+                            <constraint firstItem="Jjm-3V-CRa" firstAttribute="top" secondItem="C9a-Qb-r9A" secondAttribute="bottom" constant="56" id="Unt-CL-eny"/>
+                            <constraint firstItem="Jjm-3V-CRa" firstAttribute="trailing" secondItem="wAe-SW-hKg" secondAttribute="trailingMargin" id="Yey-YH-C0b"/>
+                            <constraint firstItem="Jjm-3V-CRa" firstAttribute="centerX" secondItem="Wk0-J1-a6a" secondAttribute="centerX" id="ecv-xR-5is"/>
+                            <constraint firstItem="PYQ-6v-BeE" firstAttribute="top" secondItem="Wk0-J1-a6a" secondAttribute="bottom" constant="245" id="enq-0D-Mqf"/>
+                            <constraint firstItem="C9a-Qb-r9A" firstAttribute="centerX" secondItem="Jjm-3V-CRa" secondAttribute="centerX" id="fWo-TY-xzw"/>
+                            <constraint firstItem="C9a-Qb-r9A" firstAttribute="top" secondItem="Zti-x2-3kj" secondAttribute="bottom" constant="103" id="q5U-5n-YaE"/>
+                            <constraint firstItem="Wk0-J1-a6a" firstAttribute="top" secondItem="Jjm-3V-CRa" secondAttribute="bottom" constant="64" id="vdg-fq-9qB"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="resultImageView" destination="C9a-Qb-r9A" id="Hby-jd-XAm"/>
@@ -97,4 +115,7 @@
         <image name="rock" width="75" height="65"/>
         <image name="scissors" width="75" height="65"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qK6-gh-oSI"/>
+    </inferredMetricsTieBreakers>
 </document>
