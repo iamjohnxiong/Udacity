@@ -21,6 +21,7 @@ class ViewController: UIViewController  {
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
 
     let memeTextAttributes:[String:Any] = [
         NSStrokeColorAttributeName: UIColor.black,
@@ -92,21 +93,33 @@ class ViewController: UIViewController  {
     
     func generateMemedImage() -> UIImage {
         
-        // TODO: Hide nav and tool bar
+        self.navigationController?.navigationBar.isHidden = true
+        self.bottomToolbar.isHidden = true
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        // TODO: Return nav and tool bar
+        self.navigationController?.navigationBar.isHidden = false
+        self.bottomToolbar.isHidden = false
         
         return memedImage
     }
     
     func save() {
-        let _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageVIew.image!, memedImage: generateMemedImage())
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageVIew.image!, memedImage: generateMemedImage())
+        UIImageWriteToSavedPhotosAlbum(meme.memedImage, self, nil, nil)
     }
+    
+    @IBAction func share(_ sender: Any) {
+        let memedImage = generateMemedImage()
+        let activityViewController = UIActivityViewController(activityItems: ["Meme", memedImage], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: {
+            self.save()
+        })
+    }
+    
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
