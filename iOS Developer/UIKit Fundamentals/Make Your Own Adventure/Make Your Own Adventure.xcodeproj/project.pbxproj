@@ -12,6 +12,7 @@
 		523A766420027015006A2127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523A766220027015006A2127 /* Main.storyboard */; };
 		523A766620027015006A2127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523A766520027015006A2127 /* Assets.xcassets */; };
 		523A766920027015006A2127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523A766720027015006A2127 /* LaunchScreen.storyboard */; };
+		523A7671201024E2006A2127 /* MYOAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A7670201024E2006A2127 /* MYOAViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		523A766520027015006A2127 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		523A766820027015006A2127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		523A766A20027015006A2127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		523A7670201024E2006A2127 /* MYOAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MYOAViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				523A766520027015006A2127 /* Assets.xcassets */,
 				523A766720027015006A2127 /* LaunchScreen.storyboard */,
 				523A766A20027015006A2127 /* Info.plist */,
+				523A7670201024E2006A2127 /* MYOAViewController.swift */,
 			);
 			path = "Make Your Own Adventure";
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				523A7671201024E2006A2127 /* MYOAViewController.swift in Sources */,
 				523A766120027015006A2127 /* ViewController.swift in Sources */,
 				523A765F20027015006A2127 /* AppDelegate.swift in Sources */,
 			);
@@ -304,6 +308,7 @@
 				523A766F20027015006A2127 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

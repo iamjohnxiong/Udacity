@@ -87,7 +87,7 @@ A door opens into a hallway...  What should she do?</string>
         <!--View Controller-->
         <scene sceneID="Db6-eX-hU9">
             <objects>
-                <viewController id="jcK-m0-Tb4" sceneMemberID="viewController">
+                <viewController id="jcK-m0-Tb4" customClass="MYOAViewController" customModule="Make_Your_Own_Adventure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MEt-Kr-yKD"/>
                         <viewControllerLayoutGuide type="bottom" id="sge-LH-0Wi"/>
