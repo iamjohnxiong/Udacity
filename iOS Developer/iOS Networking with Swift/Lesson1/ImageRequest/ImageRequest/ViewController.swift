@@ -22,11 +22,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let imageURL = URL(string: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_November_2010-1a.jpg")!
+
         
         let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
             if error == nil {
                 let downloadedImage = UIImage(data: data!)
                 performUIUpdatesOnMain {
+                    print("Complete")
                     self.imageView.image = downloadedImage
                 }
             }
